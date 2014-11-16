@@ -1,3 +1,4 @@
+test
 # Root 18-349 Makefile
 # Borrowed from 15410 Makefile -- thanks nwf and co.
 #
