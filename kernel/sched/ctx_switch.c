@@ -4,6 +4,10 @@
  *
  * @author Kartik Subramanian <ksubrama@andrew.cmu.edu>
  * @date 2008-11-21
+ *
+ * @author Yao Zhou <yaozhou@andrew.cmu.edu>
+ *         Congshan Lv <congshal@andrew.cmu.edu>
+ * @date   Fri, 21 Nov 2014 1:59:41
  */
  
 
@@ -28,7 +32,12 @@ static __attribute__((unused)) tcb_t* cur_tcb; /* use this if needed */
  */
 void dispatch_init(tcb_t* idle __attribute__((unused)))
 {
-	
+	/* set current task to idle */
+	cur_tcb = idle;
+	/* remove idle from run queue */
+	runqueue_remove(idle->cur_prio);
+	/* switch to idle */
+	ctx_switch_half(&idle->context);
 }
 
 
@@ -42,7 +51,19 @@ void dispatch_init(tcb_t* idle __attribute__((unused)))
  */
 void dispatch_save(void)
 {
-	
+	/* current task has the highest priority */
+	if(cur_tcb->cur_prio <= highest_prio())
+		return;
+	else{
+		/* add current task to run queue*/
+		runqueue_add(cur_tcb, cur_tcb->cur_prio);
+
+		/* context switch */
+		tcb_t* former_tcb = cur_tcb;
+		cur_tcb = runqueue_remove(highest_prio());
+
+		ctx_switch_full(&cur_tcb->context, &former_tcb->context);
+	}
 }
 
 /**
@@ -53,7 +74,9 @@ void dispatch_save(void)
  */
 void dispatch_nosave(void)
 {
-
+	/* simply switch to the runnable task with highest priority */
+	cur_tcb = runqueue_remove(highest_prio());
+	ctx_switch_half(&cur_tcb->context);
 }
 
 
@@ -65,7 +88,10 @@ void dispatch_nosave(void)
  */
 void dispatch_sleep(void)
 {
-	
+	tcb_t* former_tcb = cur_tcb;
+	cur_tcb = runqueue_remove(highest_prio());
+
+	ctx_switch_full(&cur_tcb->context, &former_tcb->context);
 }
 
 /**
@@ -73,13 +99,12 @@ void dispatch_sleep(void)
  */
 uint8_t get_cur_prio(void)
 {
-	return 1; //fix this; dummy return to prevent compiler warning
+	return cur_tcb->cur_prio;	
 }
-
 /**
  * @brief Returns the TCB of the current task.
  */
 tcb_t* get_cur_tcb(void)
 {
-	return (tcb_t *) 0; //fix this; dummy return to prevent compiler warning
+	return cur_tcb;
 }

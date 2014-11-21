@@ -8,6 +8,10 @@
  *
  * @author Kartik Subramanian
  * @date   2008-11-21
+ *
+ * @author Yao Zhou <yaozhou@andrew.cmu.edu>
+ *         Congshan Lv <congshal@andrew.cmu.edu>
+ * @date   Fri, 21 Nov 2014 2:09:50
  */
 
 	.file "ctx_switch_asm.S"
@@ -41,7 +45,11 @@ FUNC(launch_task)
 /* r0 points to the target context, r1 to the current context. */
 /* add your code to perform a full context switch */
 FUNC(ctx_switch_full)
-
+	stmia	r1, {r4-r11, sp, lr} @store current context
+	ldmia	r0, {r4-r11, sp, lr} @load new task context
+	mov	pc, lr
 
 /*add your code to perform a half context switch */	
 FUNC(ctx_switch_half)
+	ldmia	r0, {r4-r11, sp, lr} @load new task context
+	mov	pc, lr

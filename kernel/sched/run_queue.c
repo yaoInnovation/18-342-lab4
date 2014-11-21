@@ -4,6 +4,10 @@
  *
  * @author Kartik Subramanian <ksubrama@andrew.cmu.edu>
  * @date 2008-11-21
+ *
+ * @author Yao Zhou <yaozhou@andrew.cmu.edu>
+ *         Congshan Lv <congshal@andrew.cmu.edu>
+ * @date   Fri, 21 Nov 2014 14:44:28
  */
 
 #include <types.h>
@@ -58,7 +62,17 @@ static uint8_t prio_unmap_table[]  __attribute__((unused)) =
  */
 void runqueue_init(void)
 {
-	
+	int i;
+	/* run list init */
+	for(i = 0; i < OS_MAX_TASKS; i ++){
+		run_list = NULL;
+	}
+	/* run bits init */
+	for(i = 0; i < OS_MAX_TASKS/8; i ++){
+		run_bits = 0;
+	}
+	/* group run bits init */
+	group_run_bits = 0;
 }
 
 /**
@@ -71,7 +85,19 @@ void runqueue_init(void)
  */
 void runqueue_add(tcb_t* tcb  __attribute__((unused)), uint8_t prio  __attribute__((unused)))
 {
-	
+	/* invalid priority */
+	if(prio >= OS_MAX_TASKS)
+		return;
+	/* run queue for that priority is not empty */
+	if(run_list[prio] != NULL)
+		return;
+	else{
+		run_list[prio] = tcb;
+		uint8_t group = prio >> 3;
+		uint8_t position = prio & 0x07
+		group_run_bits = group_run_bits | (0x01 << group);
+		run_bits[group] = run_bits[group] | (0x01 << position);
+	}
 }
 
 
@@ -84,7 +110,29 @@ void runqueue_add(tcb_t* tcb  __attribute__((unused)), uint8_t prio  __attribute
  */
 tcb_t* runqueue_remove(uint8_t prio  __attribute__((unused)))
 {
-	return (tcb_t *)1; // fix this; dummy return to prevent warning messages	
+	/* invalid priority */
+	if(prio >= OS_MAX_TASKS)
+		return NULL;
+	/* run queue for that priority is empty */
+	if(run_list[prio] == NULL)
+		return NULL;
+	else{
+		/* get the tcb pointer */
+		tcb_t* ret = run_list[prio];
+		/* remove it from run queue */
+		run_list[prio] = NULL;
+
+		uint8_t group = prio >> 3;
+		uint8_t position = prio & 0x07
+
+		/* modify run bits */
+		run_bits[group] = run_bits[group] & (~(0x01 << position));
+		/* no task in the group, modify group run bits */
+		if(run_bits[group] == 0){
+			group_run_bits = group_run_bits & (~(0x01 << group));;
+		}
+		return ret;
+	}
 }
 
 /**
@@ -93,5 +141,8 @@ tcb_t* runqueue_remove(uint8_t prio  __attribute__((unused)))
  */
 uint8_t highest_prio(void)
 {
-	return 1; // fix this; dummy return to prevent warning messages	
+	uint8_t group = prio_unmap_table[group_run_bits];
+	uint8_t position = prio_unmap_table[run_bits[group]];
+
+	return (group << 3) + position;
 }
