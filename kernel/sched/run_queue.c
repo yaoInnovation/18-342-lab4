@@ -14,6 +14,7 @@
 #include <assert.h>
 
 #include <kernel.h>
+#include <config.h>
 #include <sched.h>
 #include "sched_i.h"
 
@@ -86,7 +87,7 @@ void runqueue_init(void)
 void runqueue_add(tcb_t* tcb  __attribute__((unused)), uint8_t prio  __attribute__((unused)))
 {
 	/* invalid priority */
-	if(prio >= OS_MAX_TASKS)
+	if(prio > IDLE_PRIO)
 		return;
 	/* run queue for that priority is not empty */
 	if(run_list[prio] != NULL)
@@ -111,7 +112,7 @@ void runqueue_add(tcb_t* tcb  __attribute__((unused)), uint8_t prio  __attribute
 tcb_t* runqueue_remove(uint8_t prio  __attribute__((unused)))
 {
 	/* invalid priority */
-	if(prio >= OS_MAX_TASKS)
+	if(prio > IDLE_PRIO)
 		return NULL;
 	/* run queue for that priority is empty */
 	if(run_list[prio] == NULL)
