@@ -4,6 +4,10 @@
  * @brief Implements simulated devices.
  * @author Kartik Subramanian <ksubrama@andrew.cmu.edu>
  * @date 2008-12-01
+ *
+ * @author Yao Zhou <yaozhou@andrew.cmu.edu>
+ *         Congshan Lv <congshal@andrew.cmu.edu>
+ * @date   Sat, 22 Nov 2014
  */
 
 #include <types.h>
@@ -45,8 +49,13 @@ static dev_t devices[NUM_DEVICES];
  */
 void dev_init(void)
 {
-   /* the following line is to get rid of the warning and should not be needed */	
-   devices[0]=devices[0];
+	int i;
+	for(i = 0; i < NUM_DEVICES; i++){
+		/* sleep queue init */
+		devices[i].sleep_queue = NULL;
+		/* match value init */
+		devices[i].next_match = time() + dev_freq[i];
+	}
 }
 
 
@@ -58,7 +67,26 @@ void dev_init(void)
  */
 void dev_wait(unsigned int dev __attribute__((unused)))
 {
-	
+	//disable_interrupts();
+
+	tcb_t* tmp = devices[dev].sleep_queue;
+	while(TRUE){
+		if(tmp == NULL){
+			//not sure: remove cur from runqueue or not?
+			devices[dev].sleep_queue = runqueue_remove(get_cur_prio());
+			break;
+		}
+		if(tmp->sleep_queue == NULL){
+			//not sure: remove cur from runqueue or not?
+			tmp->sleep_queue = runqueue_remove(get_cur_prio());
+			tmp->sleep_queue->sleep_queue = NULL;
+			break;
+		}
+		tmp = tmp->sleep_queue;
+	}
+
+	//enable_interrupts();
+	dispatch_sleep();
 }
 
 
@@ -71,6 +99,30 @@ void dev_wait(unsigned int dev __attribute__((unused)))
  */
 void dev_update(unsigned long millis __attribute__((unused)))
 {
-	
+	//disable_interrupts();
+	int i;
+	int flag = 0;
+	for(i = 0; i < NUM_DEVICES; i++){
+		/* millis matches a device next_match */
+		if(devices[i].next_match <= millis){
+			/* make tasks in its sleep queue runnable */
+			tcb_t* tmp = devices[i].sleep_queue;
+			tcb_t* next;
+			while(tmp != NULL){
+				flag = 1;
+				next = tmp->sleep_queue;
+				tmp->sleep_queue = NULL;
+				runqueue_add(tmp, tmp->cur_prio);
+				tmp = mext;
+			}
+			devices[i].sleep_queue = NULL;
+
+			/* update mext match */
+			devices[i].next_match = millis + dev_freq[i];//or = next_match + dev_freq[i] ?		
+		}
+	}
+	//enable_interrupts();
+	if(flag == 1)
+		disatch_save();
 }
 
