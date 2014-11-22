@@ -14,6 +14,9 @@
 #include <device.h>
 #include <assert.h>
 
+volatile unsigned long sys_time;
+volatile unsigned long time_drift;
+
 uint32_t global_data;
 
 int kmain(int argc __attribute__((unused)), char** argv  __attribute__((unused)), uint32_t table)

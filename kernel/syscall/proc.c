@@ -7,6 +7,10 @@
  *
  * @author Kartik Subramanian <ksubrama@andrew.cmu.edu>
  * @date 2008-11-12
+ *
+ * @author Yao Zhou <yaozhou@andrew.cmu.edu>
+ *         Congshan Lv <congshal@andrew.cmu.edu>
+ * @date   Sat, 22 Nov 2014
  */
 
 #include <exports.h>
@@ -24,12 +28,45 @@
 
 int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attribute__((unused)))
 {
-  return 1; /* remove this line after adding your code */
+	/* invalid task number */
+	if(num_tasks <= 0 || num_tasks > OS_AVAIL_TASKS){
+		return -EINVAL;
+	}
+	/* invalid address */
+	if(valid_addr(tasks, num_tasks, USR_START_ADDR, USR_END_ADDR) == 0){
+		return -EFAULT;
+	}
+
+	disable_interrupts();
+	/* run queue init */
+	runqueue_init();
+	/* dev init */
+	dev_init();
+
+	/* task not schedulable */
+	if(assign_schedule() == 0){
+		return -ESCHED;
+	}
+	/* allocate user-stacks and init the kernel contexts of the given threads*/
+	allocate_tasks(tasks, num_tasks);
+	/* allocate stack and init the kernel context of IDLE */
+	sched_init(NULL);
+	/* dispatch */
+	dispatch_nosave();
+	/* go to dispatch, never should come back */
+	return 1;
 }
 
 int event_wait(unsigned int dev  __attribute__((unused)))
 {
-  return 1; /* remove this line after adding your code */	
+	/* invalid dev */
+	if(dev > NUM_DEVICES){
+		return -EINVAL;
+	}
+	/* wait on dev */
+	dev_wait(dev);
+
+	return 0;
 }
 
 /* An invalid syscall causes the kernel to exit. */

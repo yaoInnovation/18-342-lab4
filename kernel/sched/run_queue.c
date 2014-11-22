@@ -7,7 +7,7 @@
  *
  * @author Yao Zhou <yaozhou@andrew.cmu.edu>
  *         Congshan Lv <congshal@andrew.cmu.edu>
- * @date   Fri, 21 Nov 2014 14:44:28
+ * @date   Fri, 21 Nov 2014
  */
 
 #include <types.h>
