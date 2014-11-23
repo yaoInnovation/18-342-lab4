@@ -14,6 +14,12 @@
 #include <device.h>
 #include <assert.h>
 #include <types.h>
+#include <arm/reg.h>
+#include <arm/psr.h>
+#include <arm/exception.h>
+#include <arm/interrupt.h>
+#include <arm/timer.h>
+#include <lock.h>
 
 #define SWI_ADDR 0x08
 #define IRQ_ADDR 0x18
@@ -55,7 +61,7 @@ int kmain(int argc __attribute__((unused)), char** argv  __attribute__((unused))
 	// Address of the old IRQ Handler
 	unsigned* irq_vec_addr = (unsigned*)(IRQ_ADDR);
 	// Address of my IRQ Handler
-	unsigned  new_irq_addr = (unsigned)&IRQ_Handler;
+	unsigned  new_irq_addr = (unsigned)&irq_wrapper;
 	
 	// Save the first two instrs of the old SWI Handler
 	unsigned swi_instr1, swi_instr2;
@@ -72,10 +78,10 @@ int kmain(int argc __attribute__((unused)), char** argv  __attribute__((unused))
 	time_drift = 0;
 	
 	// Save regs
-	unsigned ICMR, ICLR, OIER;
-	ICMR = reg_read(INT_ICMR_ADDR);
-	ICLR = reg_read(INT_ICLR_ADDR);
-	OIER = reg_read(OSTMR_OIER_ADDR);
+	//unsigned ICMR, ICLR, OIER;
+	//ICMR = reg_read(INT_ICMR_ADDR);
+	//ICLR = reg_read(INT_ICLR_ADDR);
+	//OIER = reg_read(OSTMR_OIER_ADDR);
 
 	// Set regs
 	reg_write(INT_ICMR_ADDR, 1<<INT_OSTMR_0);//Only enable OSTMR0

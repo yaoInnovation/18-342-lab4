@@ -19,6 +19,7 @@
 #include <arm/reg.h>
 #include <arm/psr.h>
 #include <arm/exception.h>
+#include <syscall.h>
 
 /**
  * @brief Fake device maintainence structure.
@@ -54,7 +55,7 @@ void dev_init(void)
 		/* sleep queue init */
 		devices[i].sleep_queue = NULL;
 		/* match value init */
-		devices[i].next_match = time() + dev_freq[i];
+		devices[i].next_match = time_syscall() + dev_freq[i];
 	}
 }
 
@@ -113,7 +114,7 @@ void dev_update(unsigned long millis __attribute__((unused)))
 				next = tmp->sleep_queue;
 				tmp->sleep_queue = NULL;
 				runqueue_add(tmp, tmp->cur_prio);
-				tmp = mext;
+				tmp = next;
 			}
 			devices[i].sleep_queue = NULL;
 
@@ -123,6 +124,6 @@ void dev_update(unsigned long millis __attribute__((unused)))
 	}
 	//enable_interrupts();
 	if(flag == 1)
-		disatch_save();
+		dispatch_save();
 }
 

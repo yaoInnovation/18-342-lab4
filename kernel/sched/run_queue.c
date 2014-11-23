@@ -18,7 +18,7 @@
 #include <sched.h>
 #include "sched_i.h"
 
-
+#define NULL 0
 
 static tcb_t* run_list[OS_MAX_TASKS]  __attribute__((unused));
 
@@ -66,11 +66,11 @@ void runqueue_init(void)
 	int i;
 	/* run list init */
 	for(i = 0; i < OS_MAX_TASKS; i ++){
-		run_list = NULL;
+		run_list[i] = NULL;
 	}
 	/* run bits init */
 	for(i = 0; i < OS_MAX_TASKS/8; i ++){
-		run_bits = 0;
+		run_bits[i] = 0;
 	}
 	/* group run bits init */
 	group_run_bits = 0;
@@ -95,7 +95,7 @@ void runqueue_add(tcb_t* tcb  __attribute__((unused)), uint8_t prio  __attribute
 	else{
 		run_list[prio] = tcb;
 		uint8_t group = prio >> 3;
-		uint8_t position = prio & 0x07
+		uint8_t position = prio & 0x07;
 		group_run_bits = group_run_bits | (0x01 << group);
 		run_bits[group] = run_bits[group] | (0x01 << position);
 	}
@@ -124,7 +124,7 @@ tcb_t* runqueue_remove(uint8_t prio  __attribute__((unused)))
 		run_list[prio] = NULL;
 
 		uint8_t group = prio >> 3;
-		uint8_t position = prio & 0x07
+		uint8_t position = prio & 0x07;
 
 		/* modify run bits */
 		run_bits[group] = run_bits[group] & (~(0x01 << position));

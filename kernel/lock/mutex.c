@@ -20,6 +20,7 @@
 #ifdef DEBUG_MUTEX
 #include <exports.h> // temp
 #endif
+#define NULL 0
 
 mutex_t gtMutex[OS_NUM_MUTEX];
 int volatile next_mutex_index = 0;

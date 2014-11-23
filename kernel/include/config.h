@@ -30,4 +30,7 @@
 /* OS_NUM_MUTEX must be at lease 32 */
 #define OS_NUM_MUTEX	32
 
+#define NULL 0
+#define TIME_STEP 10
+#define TIME_COUNTER_STEP 32500
 #endif /* _CONFIG_H_ */

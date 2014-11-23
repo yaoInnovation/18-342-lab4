@@ -23,7 +23,7 @@
 
 #define EOT_CHAR 0x04
 #define DEL_CHAR 0x7f
-
+#define NULL 0
 
 /* Read count bytes (or less) from fd into the buffer buf. */
 ssize_t read_syscall(int fd __attribute__((unused)), void *buf __attribute__((unused)), size_t count __attribute__((unused)))
@@ -49,37 +49,37 @@ ssize_t read_syscall(int fd __attribute__((unused)), void *buf __attribute__((un
 		ch = getc();
 
 		// return if EOT occurred
-		if( ch == EOT) {
+		if( ch == EOT_CHAR) {
 			return read_byte;
 		}
 
 		switch(ch) {
-			case backspace: {
+			case '\b': {
 				read_byte--;
-				buf[read_byte] = 0;
+				((char*)buf)[read_byte] = NULL;
 				puts("\b \b");
 				break;
 			}
-			case delete: {
+			case DEL_CHAR: {
 				read_byte--;
-				buf[read_byte] = 0;
+				((char*)buf)[read_byte] = NULL;
 				puts("\b \b");
 				break;
 			}
 			case '\r': {
-				buf[read_byte] = ch;
+				((char*)buf)[read_byte] = ch;
 				read_byte++;
 				putc('\n');
 				return read_byte;
 			}
 			case '\n': {
-				buf[read_byte] = ch;
+				((char*)buf)[read_byte] = ch;
 				read_byte++;
 				putc(ch);
 				return read_byte;
 			}
 			default: {
-				buf[read_byte] = ch;
+				((char*)buf)[read_byte] = ch;
 				read_byte++;
 				putc(ch);
 			}
@@ -104,12 +104,12 @@ ssize_t write_syscall(int fd  __attribute__((unused)), const void *buf  __attrib
 		//valid address
 		while(byte_write < count) {
 			//printf("byte_write:%d\n",byte_write);
-			if(buf[byte_write] == '\0') {
+			if(((char*)buf)[byte_write] == '\0') {
 				// the end of string
 				return byte_write;
 			}
 			else {
-				putc(buf[byte_write]);
+				putc(((char*)buf)[byte_write]);
 				byte_write++;
 			}
 		}

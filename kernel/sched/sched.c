@@ -22,6 +22,9 @@
 #include <arm/exception.h>
 #include <arm/physmem.h>
 
+#define NULL 0
+static void __attribute__((unused)) idle(void);
+
 tcb_t system_tcb[OS_MAX_TASKS]; /*allocate memory for system TCBs */
 
 void sched_init(task_t* main_task  __attribute__((unused)))

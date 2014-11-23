@@ -25,7 +25,9 @@
 #include <arm/exception.h>
 #include <arm/physmem.h>
 #include <device.h>
+#include <../sched/sched_i.h>
 
+#define NULL 0
 int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attribute__((unused)))
 {
 	/* invalid task number */
@@ -44,11 +46,11 @@ int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attr
 	dev_init();
 
 	/* task not schedulable */
-	if(assign_schedule() == 0){
+	if(assign_schedule(&tasks, num_tasks) == 0){
 		return -ESCHED;
 	}
 	/* allocate user-stacks and init the kernel contexts of the given threads*/
-	allocate_tasks(tasks, num_tasks);
+	allocate_tasks(&tasks, num_tasks);
 	/* allocate stack and init the kernel context of IDLE */
 	sched_init(NULL);
 	/* dispatch */
