@@ -41,9 +41,9 @@ unsigned long time_syscall(void)
 void sleep_syscall(unsigned long millis  __attribute__((unused)))
 {
 	// compute the end time stamp
-	unsigned long up_time = time() + m_sec;
+	unsigned long up_time = time_syscall() + m_sec;
 	// keep waiting for a certain duration
-	while (time() < up_time);
+	while (time_syscall() < up_time);
 
 	return;
 }

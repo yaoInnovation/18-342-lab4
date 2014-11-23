@@ -7,6 +7,7 @@
  */
 
 #include <asm.h>
+#include <bits/swi.h>
 
 	.file "mutex_create.S"
 
@@ -23,5 +24,4 @@ FUNC(mutex_create)
 
 .return:
         LDMFD   sp!, {r1}       @ recover r1
-        MOV     pc, lr          @ return
-~                                       
+        MOV     pc, lr          @ return                              
