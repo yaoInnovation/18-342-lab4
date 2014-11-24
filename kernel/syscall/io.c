@@ -22,12 +22,14 @@
 #include <kernel.h>
 
 #define EOT_CHAR 0x04
+#define BACK_CHAR 8
 #define DEL_CHAR 0x7f
 #define NULL 0
 
 /* Read count bytes (or less) from fd into the buffer buf. */
 ssize_t read_syscall(int fd __attribute__((unused)), void *buf __attribute__((unused)), size_t count __attribute__((unused)))
 {
+	printf("start read\n");
 	// a variable to record how many byte read
 	unsigned read_byte = 0;
 	// loaded char
@@ -54,7 +56,7 @@ ssize_t read_syscall(int fd __attribute__((unused)), void *buf __attribute__((un
 		}
 
 		switch(ch) {
-			case '\b': {
+			case BACK_CHAR: {
 				read_byte--;
 				((char*)buf)[read_byte] = NULL;
 				puts("\b \b");
@@ -67,7 +69,7 @@ ssize_t read_syscall(int fd __attribute__((unused)), void *buf __attribute__((un
 				break;
 			}
 			case '\r': {
-				((char*)buf)[read_byte] = ch;
+				((char*)buf)[read_byte] = '\n';
 				read_byte++;
 				putc('\n');
 				return read_byte;
