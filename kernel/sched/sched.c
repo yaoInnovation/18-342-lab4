@@ -74,21 +74,25 @@ static void __attribute__((unused)) idle(void)
  */
 void allocate_tasks(task_t** tasks  __attribute__((unused)), size_t num_tasks  __attribute__((unused)))
 {
-	int i;
-	for(i = 0; i < (int)num_tasks; i++){
+	size_t i;
+	task_t* task_l = *tasks;
+	sched_context_t* context;
+
+	for(i = 1; i <= num_tasks; i++) {
 		system_tcb[i].native_prio = i;
 		system_tcb[i].cur_prio = i;
+		context = &(system_tcb[i].context);
 
-		system_tcb[i].context.r4 = (uint32_t)(tasks[i]->lambda);
-		system_tcb[i].context.r5 = (uint32_t)(tasks[i]->data);
-		system_tcb[i].context.r6 = (uint32_t)(tasks[i]->stack_pos);
-		system_tcb[i].context.r7 = 0;
-		system_tcb[i].context.r8 = global_data;
-		system_tcb[i].context.r9 = 0;
-		system_tcb[i].context.r10 = 0;
-		system_tcb[i].context.r11 = 0;
-		system_tcb[i].context.sp = system_tcb[i].kstack_high;
-		system_tcb[i].context.lr = launch_task;
+		context->r4 = (uint32_t)task_l[i-1].lambda;
+		context->r5 = (uint32_t)(task_l[i-1].data);
+		context->r6 = (uint32_t)(task_l[i-1].stack_pos);
+		context->r7 = 0;
+		context->r8 = global_data;
+		context->r9 = 0;
+		context->r10 = 0;
+		context->r11 = 0;
+		context->sp = (void*)system_tcb[i].kstack_high;
+		context->lr = launch_task;
 
 		system_tcb[i].holds_lock = 0;
 		system_tcb[i].sleep_queue = NULL;

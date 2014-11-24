@@ -26,6 +26,7 @@
 #include <arm/physmem.h>
 #include <device.h>
 #include <../sched/sched_i.h>
+#include <debug.h>
 
 #define NULL 0
 int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attribute__((unused)))
@@ -54,6 +55,7 @@ int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attr
 	/* allocate stack and init the kernel context of IDLE */
 	sched_init(NULL);
 	/* dispatch */
+	printf("sched init finished\n");
 	dispatch_nosave();
 	/* go to dispatch, never should come back */
 	return 1;

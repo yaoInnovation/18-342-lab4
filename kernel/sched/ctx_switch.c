@@ -76,6 +76,7 @@ void dispatch_nosave(void)
 {
 	/* simply switch to the runnable task with highest priority */
 	cur_tcb = runqueue_remove(highest_prio());
+	printf("remove highest priority(finished)\n");
 	ctx_switch_half(&cur_tcb->context);
 }
 
