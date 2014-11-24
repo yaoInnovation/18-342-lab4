@@ -40,6 +40,7 @@ void fun2(void* str)
 
 int main(int argc, char** argv)
 {
+	printf("entering dagger main!\n");
 	task_t tasks[2];
 	tasks[0].lambda = fun1;
 	tasks[0].data = (void*)'@';
@@ -52,7 +53,9 @@ int main(int argc, char** argv)
 	tasks[1].C = 1;
 	tasks[1].T = PERIOD_DEV1;
 
+	printf("tasks initialization finished\n");
 	task_create(tasks, 2);
+	printf("tasks returned!!!\n");
 	argc=argc; /* remove compiler warning */
 	argv[0]=argv[0]; /* remove compiler warning */
 
