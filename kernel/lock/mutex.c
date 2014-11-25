@@ -101,8 +101,8 @@ int mutex_lock(int mutex  __attribute__((unused)))
 		gtMutex[mutex].bLock = TRUE;
 
 		cur_tcb->holds_lock ++;
-		cur_tcb->native_prio = cur_tcb->cur_prio;
-		cur_tcb->cur_prio = 0;
+		//cur_tcb->native_prio = cur_tcb->cur_prio;
+		//cur_tcb->cur_prio = 0;
 
 		enable_interrupts();
 		return 0;
@@ -141,9 +141,9 @@ int mutex_unlock(int mutex  __attribute__((unused)))
 			if(cur_tcb->holds_lock != 0)
 				cur_tcb->holds_lock --;
 			/* if current task does not hold any other locks, set priority back */
-			if(cur_tcb->holds_lock == 0){
+		/*	if(cur_tcb->holds_lock == 0){
 				cur_tcb->cur_prio = cur_tcb->native_prio;
-			}
+			} */
 
 			enable_interrupts();
 			return 0;

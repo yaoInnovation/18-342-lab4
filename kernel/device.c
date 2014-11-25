@@ -97,7 +97,6 @@ void dev_wait(unsigned int dev __attribute__((unused)))
  */
 void dev_update(unsigned long millis __attribute__((unused)))
 {
-	//printf("entering dev_update\n");
 	//disable_interrupts();
 	int i;
 	int flag = 0;

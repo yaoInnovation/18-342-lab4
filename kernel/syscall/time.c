@@ -16,6 +16,7 @@
 #include <arm/timer.h>
 #include <arm/reg.h>
 #include <syscall.h>
+#include <arm/reg.h>
 
 extern volatile unsigned long sys_time;
 extern volatile unsigned long time_drift;
@@ -43,7 +44,8 @@ void sleep_syscall(unsigned long millis  __attribute__((unused)))
 	// compute the end time stamp
 	unsigned long up_time = time_syscall() + millis;
 	// keep waiting for a certain duration
-	while (time_syscall() < up_time);
+	while ( time_syscall()< up_time){
+	};
 
 	return;
 }
