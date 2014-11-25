@@ -12,7 +12,7 @@
 	.file "mutex_create.S"
 
 FUNC(mutex_create)
-	@ Add code here.  Put your name at the top.
+	    @ Add code here.  Put your name at the top.
         STMFD   sp!, {r1}       @ protect register r1
        	SWI     MUTEX_CREATE    @ call mutex create syscall
         CMP     r0, #0          @ check return value

@@ -59,6 +59,37 @@ static void __attribute__((unused)) idle(void)
 	 while(1);
 }
 
+void sort_tasks(task_t** tasks, size_t num_tasks) {
+	size_t i = 0;
+	size_t j = 0;
+	task_t tmp;
+	task_t* task_l = *tasks;
+	for(i = 0; i < num_tasks-1; i++){
+		for(j = 0; j < num_tasks-1-i; j++){
+			if(task_l[j].T > task_l[j+1].T){
+				tmp.lambda = task_l[j].lambda;
+				tmp.data = task_l[j].data;
+				tmp.stack_pos = task_l[j].stack_pos;
+				tmp.C = task_l[j].C;
+				tmp.T = task_l[j].T;
+
+				task_l[j].lambda = task_l[j+1].lambda;
+				task_l[j].data = task_l[j+1].data;
+				task_l[j].stack_pos = task_l[j+1].stack_pos;
+				task_l[j].C = task_l[j+1].C;
+				task_l[j].T = task_l[j+1].T;
+
+				task_l[j+1].lambda = tmp.lambda;
+				task_l[j+1].data = tmp.data;
+				task_l[j+1].stack_pos = tmp.stack_pos;
+				task_l[j+1].C = tmp.C;
+				task_l[j+1].T = tmp.T;
+
+			}
+		}
+	}
+}
+
 /**
  * @brief Allocate user-stacks and initializes the kernel contexts of the
  * given threads.
@@ -77,6 +108,8 @@ void allocate_tasks(task_t** tasks  __attribute__((unused)), size_t num_tasks  _
 	size_t i;
 	task_t* task_l = *tasks;
 	sched_context_t* context;
+
+	sort_tasks(tasks, num_tasks);
 
 	for(i = 1; i <= num_tasks; i++) {
 		system_tcb[i].native_prio = i;

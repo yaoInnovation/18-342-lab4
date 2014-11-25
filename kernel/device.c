@@ -108,7 +108,7 @@ void dev_update(unsigned long millis __attribute__((unused)))
 			tcb_t* tmp = devices[i].sleep_queue;
 			tcb_t* next;
 			while(tmp != NULL){
-				flag = 1;
+				flag = 1;	
 				next = tmp->sleep_queue;
 				tmp->sleep_queue = NULL;
 				runqueue_add(tmp, tmp->cur_prio);

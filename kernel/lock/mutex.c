@@ -39,9 +39,10 @@ void mutex_init()
 int mutex_create(void)
 {
 	disable_interrupts();
-
 	/* no available mutex */
-	if(next_mutex_index == OS_NUM_MUTEX){
+	printf("next_mutex_index%d\n",next_mutex_index);
+	if(next_mutex_index >= OS_NUM_MUTEX){
+		printf("cannot create anymore\n");
 		enable_interrupts();
 		return -ENOMEM;
 	}
@@ -140,14 +141,10 @@ int mutex_unlock(int mutex  __attribute__((unused)))
 			/* decrease the num of locks hold by current task by one */
 			if(cur_tcb->holds_lock != 0)
 				cur_tcb->holds_lock --;
-			/* if current task does not hold any other locks, set priority back */
-		/*	if(cur_tcb->holds_lock == 0){
-				cur_tcb->cur_prio = cur_tcb->native_prio;
-			} */
+			
 
 			enable_interrupts();
 			return 0;
-
 		}
 	}
 }
