@@ -1,9 +1,9 @@
  \
- /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/sched/ctx_switch_asm.o:  \
- /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/sched/ctx_switch_asm.S \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/asm.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/psr.h
+ /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/sched/ctx_switch_asm.o:  \
+ /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/sched/ctx_switch_asm.S \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/asm.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/psr.h
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/asm.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/asm.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/psr.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/psr.h:

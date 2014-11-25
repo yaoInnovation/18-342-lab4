@@ -27,16 +27,16 @@ setup:
 	STR r8, [r2]
 	
 	MRS r2, cpsr		@ create IRQ mode stack
-	AND r2, r2, #0xFFFFFFF0	@ get last 4 bits
-	ORR   r2, r2, #0x2	@ 10010 - IRQ mode
-        MSR   cpsr, r2 		@ switch IRQ mode
-        MOV   sp, #0xA2000000	@ create stack for IRQ mode
+	AND r2, r2, 		#0xFFFFFFF0	@ get last 4 bits
+	ORR   r2, r2, 		#0x2	@ 10010 - IRQ mode
+    MSR   cpsr, r2 		@ switch IRQ mode
+    MOV   sp, 			#0xA2000000	@ create stack for IRQ mode
 	
 	MRS	r2, cpsr		@ get current cpsr
-	AND     r2, r2, #0xFFFFFF00	@ get last 8 bits
-	ORR	r2, r2, #0x50		@ mask FIQ and enter user mode 10000.
+	AND     r2, r2, 	#0xFFFFFF00	@ get last 8 bits
+	ORR	r2, r2, #0x50	@ mask FIQ and enter user mode 10000.
 	MSR	cpsr, r2   		@ switch to USER mode with FIQ masked
-	MOV 	sp, #0xA3000000		@ set up stack address to create a descending user stack
+	MOV sp, #0xA3000000	@ set up stack address to create a descending user stack
 
 	MOV   r2, #0   	@ push null to the argv
 	STMFD sp!, {r2} 

@@ -25,33 +25,24 @@ extern volatile unsigned long sys_time;
 extern volatile unsigned long time_drift;
 
 void IRQ_Handler_C(){
-
 	//Check whether a timer interrupt has occurred
 	if((reg_read(OSTMR_OSSR_ADDR)&OSTMR_OSSR_M0)
 	 &&(reg_read(INT_ICPR_ADDR)>>INT_OSTMR_0)){
 
-		// increase time by TIME_STEP(10ms)
-		sys_time += TIME_STEP;
-		
-		// read OSCR register
-		volatile unsigned long OSCR = reg_read(OSTMR_OSCR_ADDR);
-		
-		// update time_drift
-		time_drift += (OSCR - TIME_COUNTER_STEP);
-		
-		// reset OSCR
-		reg_write(OSTMR_OSCR_ADDR, 0X00);
-		
-		if(time_drift >= TIME_COUNTER_STEP){
+      // Increment time by 10ms
+      sys_time += TIME_STEP;
 
-			time_drift -= TIME_COUNTER_STEP;
-			sys_time += TIME_STEP;
-		}
+  	  // Reset time clock, avoid accumulation.
+      reg_write(OSTMR_OSCR_ADDR, 0X00);
 
-		// notice IRQ
-		reg_set(OSTMR_OSSR_ADDR, OSTMR_OSSR_M0);
+      // Set OSMR to next match point (10ms later)
+      reg_write(OSTMR_OSMR_ADDR(0), reg_read(OSTMR_OSCR_ADDR) + TIME_COUNTER_STEP);
 
-		dev_update(time_syscall());
+      // reset match register match bit
+      reg_set(OSTMR_OSSR_ADDR, OSTMR_OSSR_M0);
+
+      // update devices to awake sleeping programs.
+	  dev_update(sys_time);
 	}
 	return;
 }

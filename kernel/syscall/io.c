@@ -29,7 +29,7 @@
 /* Read count bytes (or less) from fd into the buffer buf. */
 ssize_t read_syscall(int fd __attribute__((unused)), void *buf __attribute__((unused)), size_t count __attribute__((unused)))
 {
-	printf("start read\n");
+	//printf("start read\n");
 	// a variable to record how many byte read
 	unsigned read_byte = 0;
 	// loaded char

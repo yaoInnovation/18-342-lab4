@@ -1,54 +1,54 @@
  \
- /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/arm/IRQ_Handler_C.o:  \
- /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/arm/IRQ_Handler_C.c \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/exports.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/types.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/stdarg.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/_exports.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/reg.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/inline.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/psr.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/exception.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/interrupt.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/timer.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/bits/fileno.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/bits/errno.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/bits/swi.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/config.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/syscall.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/task.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/device.h
+ /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/arm/IRQ_Handler_C.o:  \
+ /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/arm/IRQ_Handler_C.c \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/exports.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/types.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/stdarg.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/_exports.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/reg.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/inline.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/psr.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/exception.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/interrupt.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/timer.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/bits/fileno.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/bits/errno.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/bits/swi.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/config.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/syscall.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/task.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/device.h
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/exports.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/exports.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/types.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/types.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/stdarg.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/stdarg.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/_exports.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/_exports.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/reg.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/reg.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/inline.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/inline.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/psr.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/psr.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/exception.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/exception.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/interrupt.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/interrupt.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/timer.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/timer.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/bits/fileno.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/bits/fileno.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/bits/errno.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/bits/errno.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/bits/swi.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/bits/swi.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/config.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/config.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/syscall.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/syscall.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/task.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/task.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/device.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/device.h:

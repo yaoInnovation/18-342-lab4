@@ -23,7 +23,7 @@ int print_sys_tcb(tcb_t* system_tcb) {
 	for(; i<= NUM_TCB; i++) {
 		printf("tcb no:%d\n", i);
 		printf("tcb cur pos:%x\n", system_tcb[i].context.r4);
-		printf("tcb data:%c\n", system_tcb[i].context.r5);
+		printf("tcb data:%c\n", (char)(system_tcb[i].context.r5));
 		printf("task stack pos:%x\n", system_tcb[i].context.r6);
 	}
 	printf("\n");

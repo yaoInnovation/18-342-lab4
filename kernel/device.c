@@ -34,6 +34,8 @@
  * all tasks waiting on the device event to occur.
  */
 
+extern volatile unsigned long sys_time;
+
 struct dev
 {
 	tcb_t* sleep_queue;
@@ -55,7 +57,7 @@ void dev_init(void)
 		/* sleep queue init */
 		devices[i].sleep_queue = NULL;
 		/* match value init */
-		devices[i].next_match = time_syscall() + dev_freq[i];
+		devices[i].next_match = sys_time + dev_freq[i];
 	}
 }
 
@@ -71,19 +73,14 @@ void dev_wait(unsigned int dev __attribute__((unused)))
 	//disable_interrupts();
 
 	tcb_t* tmp = devices[dev].sleep_queue;
-	while(TRUE){
-		if(tmp == NULL){
-			//not sure: remove cur from runqueue or not?
-			devices[dev].sleep_queue = runqueue_remove(get_cur_prio());
-			break;
+	if (tmp == NULL) {
+		devices[dev].sleep_queue = get_cur_tcb();
+	} else {
+		while(tmp->sleep_queue != NULL){
+			tmp = tmp->sleep_queue;
 		}
-		if(tmp->sleep_queue == NULL){
-			//not sure: remove cur from runqueue or not?
-			tmp->sleep_queue = runqueue_remove(get_cur_prio());
-			tmp->sleep_queue->sleep_queue = NULL;
-			break;
-		}
-		tmp = tmp->sleep_queue;
+		tmp->sleep_queue = get_cur_tcb();
+		tmp->sleep_queue->sleep_queue = NULL;
 	}
 
 	//enable_interrupts();
@@ -100,10 +97,12 @@ void dev_wait(unsigned int dev __attribute__((unused)))
  */
 void dev_update(unsigned long millis __attribute__((unused)))
 {
+	//printf("entering dev_update\n");
 	//disable_interrupts();
 	int i;
 	int flag = 0;
 	for(i = 0; i < NUM_DEVICES; i++){
+		//printf("next match=%ld,millis=%ld\n",devices[i].next_match,millis);
 		/* millis matches a device next_match */
 		if(devices[i].next_match <= millis){
 			/* make tasks in its sleep queue runnable */
@@ -119,7 +118,7 @@ void dev_update(unsigned long millis __attribute__((unused)))
 			devices[i].sleep_queue = NULL;
 
 			/* update mext match */
-			devices[i].next_match = millis + dev_freq[i];//or = next_match + dev_freq[i] ?		
+			devices[i].next_match = devices[i].next_match + dev_freq[i];//or = next_match + dev_freq[i] ?		
 		}
 	}
 	//enable_interrupts();

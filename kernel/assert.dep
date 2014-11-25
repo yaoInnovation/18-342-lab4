@@ -1,27 +1,27 @@
  \
- /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/assert.o:  \
- /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/assert.c \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/assert.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/types.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/exports.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/stdarg.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/_exports.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/psr.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/inline.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/exception.h
+ /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/assert.o:  \
+ /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/assert.c \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/assert.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/types.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/exports.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/stdarg.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/_exports.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/psr.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/inline.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/exception.h
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/assert.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/assert.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/types.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/types.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/exports.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/exports.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/stdarg.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/stdarg.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/_exports.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/_exports.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/psr.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/psr.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/inline.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/inline.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/exception.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/arm/exception.h:

@@ -49,7 +49,7 @@ volatile unsigned long time_drift;
 int kmain(int argc __attribute__((unused)), char** argv  __attribute__((unused)), uint32_t table)
 {
 
-	printf("entering kmain\n");
+	//printf("entering kmain\n");
 	app_startup();
 	global_data = table;
 	/* add your code up to assert statement */
@@ -92,13 +92,13 @@ int kmain(int argc __attribute__((unused)), char** argv  __attribute__((unused))
 	reg_set(OSTMR_OIER_ADDR, OSTMR_OIER_E0);
 	reg_write(OSTMR_OSMR_ADDR(0), reg_read(OSTMR_OSCR_ADDR)+TIME_COUNTER_STEP);
 	
-	printf("mutex_init start\n");
+	//printf("mutex_init start\n");
 	mutex_init();
-	printf("mutex init finished\n");
+	//printf("mutex init finished\n");
 	// Change mode, jump to usr program
-	printf("set up start\n");
+	//printf("set up start\n");
 	setup(argc, argv);
-	printf("set up finished\n");
+	//printf("set up finished\n");
 	/*// Restore regs
 	reg_write(INT_ICMR_ADDR, ICMR);
 	reg_write(INT_ICLR_ADDR, ICLR);

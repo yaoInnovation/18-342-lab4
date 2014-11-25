@@ -23,11 +23,6 @@ SWI_Handler:
         		MRS   r2, spsr
         		STR   r2, [sp, #100]
 
-        		@ Mask IRQ in CPSR
-				MRS		r2,	cpsr			
-				AND		r2, r2, #0xFFFFFF7F
-				MSR		cpsr, r2
-
 				@ set up parameters for swi
 				MOV		r1,	sp			
 

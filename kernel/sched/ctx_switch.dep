@@ -1,33 +1,33 @@
  \
- /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/sched/ctx_switch.o:  \
- /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/sched/ctx_switch.c \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/types.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/assert.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/exports.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/stdarg.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/_exports.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/config.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/kernel.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/sched/sched_i.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/sched.h \
-  /home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/task.h
+ /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/sched/ctx_switch.o:  \
+ /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/sched/ctx_switch.c \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/types.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/assert.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/exports.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/stdarg.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/_exports.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/config.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/kernel.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/sched/sched_i.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/sched.h \
+  /media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/task.h
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/types.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/types.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/assert.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/assert.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/exports.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/exports.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/stdarg.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/stdarg.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/_exports.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/uboot/include/_exports.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/config.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/config.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/kernel.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/kernel.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/sched/sched_i.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/sched/sched_i.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/sched.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/sched.h:
 
-/home/yao/Desktop/Parallels-Shared-Folders/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/task.h:
+/media/psf/Home/Desktop/2014FALL/18342-Intro-to-Embedded-System/lab/18-342-lab4/kernel/include/task.h:

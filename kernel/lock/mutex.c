@@ -135,7 +135,7 @@ int mutex_unlock(int mutex  __attribute__((unused)))
 				gtMutex[mutex].pSleep_queue = tmp->sleep_queue;
 				tmp->sleep_queue = NULL;
 
-				runqueue_add(tmp, tmp->cur_prio);
+					runqueue_add(tmp, tmp->cur_prio);
 			}
 			/* decrease the num of locks hold by current task by one */
 			if(cur_tcb->holds_lock != 0)

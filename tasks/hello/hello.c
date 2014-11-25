@@ -9,13 +9,13 @@
  */
 #include <unistd.h>
 
+
 const char hello[] = "Hello World\r\n";
 
-int main(int argc, char** argv)
+int main()
 {
 	char buffer[255] = {0};
 	int size = read(STDIN_FILENO, buffer, 255);
 	write(STDOUT_FILENO, buffer, size);
-	printf("about to leave hello.bin\n");
 	return 0;
 }
